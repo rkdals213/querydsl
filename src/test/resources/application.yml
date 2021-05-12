@@ -4,7 +4,7 @@ server:
 spring:
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://192.168.99.100:3306/study2?autoReconnect=true&useUnicode=true&characterEncoding=utf8
+    url: jdbc:mysql://localhost:3306/study2?autoReconnect=true&useUnicode=true&characterEncoding=utf8
     username: root
     password: 1234
   jpa:
@@ -13,10 +13,8 @@ spring:
         format_sql: true
         default_batch_fetch_size: 1000
 #        use_sql_comments: true
-    hibernate:
-      ddl-auto: create
-  profiles:
-    active: test
+#    hibernate:
+#      ddl-auto: create
 
 logging:
   level:

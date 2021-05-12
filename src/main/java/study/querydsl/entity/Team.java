@@ -10,7 +10,7 @@ import java.util.List;
 @Getter
 @Setter
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
-@ToString(of = {"id", "name"})
+@ToString(of = {"id", "name", "members"})
 public class Team {
     @Id
     @GeneratedValue
@@ -19,6 +19,11 @@ public class Team {
     private String name;
     @OneToMany(mappedBy = "team")
     List<Member> members = new ArrayList<>();
+
+    public void setMembers(List<Member> members) {
+        if (members != null) this.members = members;
+        else this.members = new ArrayList<>();
+    }
 
     public Team(String name) {
         this.name = name;

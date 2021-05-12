@@ -91,8 +91,9 @@ public class QuerydslBasicTest {
                 .selectFrom(member)
                 .where(member.username.eq("member1")
                         .and(member.age.eq(10)))
-                .fetchOne();
+                .fetchFirst();
         assertThat(findMember.getUsername()).isEqualTo("member1");
+        assertThat(findMember.getAge()).isEqualTo(10);
     }
 
     @Test

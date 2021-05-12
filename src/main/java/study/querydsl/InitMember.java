@@ -11,16 +11,15 @@ import javax.annotation.PostConstruct;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
-@Profile("local")
 @Component
 @RequiredArgsConstructor
 public class InitMember {
     private final InitMemberService initMemberService;
 
-    @PostConstruct
-    public void init() {
-        initMemberService.init();
-    }
+//    @PostConstruct
+//    public void init() {
+//        initMemberService.init();
+//    }
 
     @Component
     static class InitMemberService {
@@ -33,7 +32,7 @@ public class InitMember {
             Team teamB = new Team("teamB");
             em.persist(teamA);
             em.persist(teamB);
-            for (int i = 0; i < 100; i++) {
+            for (int i = 0; i < 4; i++) {
                 Team selectedTeam = i % 2 == 0 ? teamA : teamB;
                 em.persist(new Member("member" + i, i, selectedTeam));
             }
