@@ -16,7 +16,7 @@ import study.querydsl.entity.Member;
 import javax.persistence.EntityManager;
 import java.util.List;
 
-import static org.springframework.util.StringUtils.isEmpty;
+import static org.springframework.util.StringUtils.hasText;
 import static study.querydsl.entity.QMember.member;
 import static study.querydsl.entity.QTeam.team;
 
@@ -47,11 +47,11 @@ public class MemberRepositoryImpl implements MemberRepositoryCustom {
     }
 
     private BooleanExpression usernameEq(String username) {
-        return isEmpty(username) ? null : member.username.eq(username);
+        return hasText(username) ? null : member.username.eq(username);
     }
 
     private BooleanExpression teamNameEq(String teamName) {
-        return isEmpty(teamName) ? null : team.name.eq(teamName);
+        return hasText(teamName) ? null : team.name.eq(teamName);
     }
 
     private BooleanExpression ageGoe(Integer ageGoe) {

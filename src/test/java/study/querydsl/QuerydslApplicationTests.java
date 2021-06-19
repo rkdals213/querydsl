@@ -164,6 +164,7 @@ class QuerydslApplicationTests {
         result.forEach(t -> t.setMembers(memberMap.get(t.getTeamId())));
 
         result.forEach(t -> {
+            System.out.println(t);
             t.getMembers().forEach(m -> {
                 Assertions.assertThat(m.getAge()).isEqualTo(10);
             });
